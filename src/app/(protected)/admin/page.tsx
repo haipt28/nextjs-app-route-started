@@ -18,12 +18,6 @@ export default function AdminPage(props: IAdminPageProps) {
         <h1 className="text-4xl font-semibold sm:text-5xl md:text-6xl lg:text-7xl">
           ADMIN PAGE
         </h1>
-        <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-          Welcome,{" "}
-          <span className="capitalize text-amber-400">
-            {session?.user?.name || "not found"}!
-          </span>
-        </p>
         <TestComponents />
         <div className="flex gap-2">
           <Link href="/">HOME</Link>

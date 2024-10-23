@@ -17,6 +17,12 @@ export function TestComponents(props: ITestComponentsProps) {
   return (
     <div>
       <Button onClick={getProfile}>Call api</Button>
+      <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
+        Welcome,{" "}
+        <span className="capitalize text-amber-400">
+          {profile?.name || "not found"}!
+        </span>
+      </p>
     </div>
   )
 }
