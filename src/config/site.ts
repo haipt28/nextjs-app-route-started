@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
     author: "https://github.com/haipt28",
   },
   links: {
-    github: "https://github.com/haipt28",
+    github: "https://github.com/haipt28/nextjs-app-route-started",
   },
   ogImage: `${env.NEXT_PUBLIC_APP_URL}/og.jpg`,
 }
