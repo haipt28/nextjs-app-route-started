@@ -1,3 +1,4 @@
+import { NextResponse } from "next/server"
 import { InternalAxiosRequestConfig } from "axios"
 import { clsx, type ClassValue } from "clsx"
 import { getSession } from "next-auth/react"
@@ -37,4 +38,18 @@ export async function axiosInterceptors(
   }
 
   return config
+}
+export const createResponse = (
+  code: number,
+  status: string,
+  message: string,
+  data?: any
+) => {
+  return NextResponse.json(
+    {
+      message: message,
+      data: data,
+    },
+    { status: code, statusText: status }
+  )
 }

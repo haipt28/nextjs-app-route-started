@@ -1,8 +1,8 @@
 "use client"
 
-import { signIn, signOut, useSession } from "next-auth/react"
+import Link from "next/link"
+import { useSession } from "next-auth/react"
 
-import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 
 export interface IAdminPageProps {}
@@ -24,8 +24,7 @@ export default function AdminPage(props: IAdminPageProps) {
           </span>
         </p>
         <div className="flex gap-2">
-          <button onClick={() => signIn("keycloak")}>Login</button>
-          <button onClick={() => signOut()}>Signout</button>
+          <Link href="/">HOME</Link>
         </div>
       </div>
     </main>
