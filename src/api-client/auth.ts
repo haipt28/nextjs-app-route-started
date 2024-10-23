@@ -1,7 +1,8 @@
 import axiosClient from "@/helper/call-center"
+import axiosClientFe from "@/helper/call-fe"
 
 export const authApi = {
   getProfile() {
-    return axiosClient.get("/profile")
+    return axiosClientFe.get("/profile")
   },
 }

@@ -32,6 +32,5 @@ export async function rewriteMiddleware(
   const urlNew = new NextURL(strUrlChange)
   urlNew.search = url.search // Giữ lại query params
   urlNew.hash = url.hash // Giữ lại hash (nếu có)
-
   return NextResponse.rewrite(urlNew) // Rewrite URL và tiếp tục request
 }

@@ -26,12 +26,13 @@ export async function axiosInterceptors(
   config: InternalAxiosRequestConfig
 ): Promise<InternalAxiosRequestConfig> {
   const session: any = await getSession()
-
   const url = "/"
   const isError = session?.error === "RefreshAccessTokenError"
   const isUserNotFound = session?.userNotFound
-
-  if ((isError && window?.location.pathname !== "/") || isUserNotFound) {
+  if (
+    (isError && window?.location.pathname !== "/") ||
+    (isUserNotFound && config.url !== "/profile")
+  ) {
     window.location.replace(url)
   } else if (session?.accessToken) {
     config.headers.Authorization = `Bearer ${session.accessToken}`

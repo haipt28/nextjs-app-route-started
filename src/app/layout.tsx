@@ -5,10 +5,12 @@ import "@fontsource/roboto/500.css"
 import "@fontsource/roboto/700.css"
 
 import type { Metadata } from "next"
+import { SessionProvider } from "next-auth/react"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import GlobalProvider from "@/components/provider/global"
+import CustomSessionProvider from "@/components/provider/session"
 
 interface RootLayoutProps {
   children: React.ReactNode

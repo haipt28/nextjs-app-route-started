@@ -8,15 +8,17 @@ import { SWRConfig } from "swr"
 export default function GlobalProvider({ children }: any) {
   return (
     <ThemeProvider>
-      <SWRConfig
-        value={{
-          fetcher: (url: string) => axiosClientFe.get(url),
-          revalidateOnFocus: true,
-          revalidateOnReconnect: true,
-        }}
-      >
-        <SessionProvider>{children}</SessionProvider>
-      </SWRConfig>
+      <SessionProvider>
+        <SWRConfig
+          value={{
+            fetcher: (url: string) => axiosClientFe.get(url),
+            revalidateOnFocus: true,
+            revalidateOnReconnect: true,
+          }}
+        >
+          {children}
+        </SWRConfig>
+      </SessionProvider>
     </ThemeProvider>
   )
 }

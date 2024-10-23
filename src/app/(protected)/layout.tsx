@@ -11,7 +11,6 @@ interface IProtectedRouteProps {
 const ProtectedLayout = ({ children }: IProtectedRouteProps) => {
   const { data: session, status } = useSession()
   const router = useRouter()
-
   useEffect(() => {
     if (status === "loading") return
     if (status === "unauthenticated") {

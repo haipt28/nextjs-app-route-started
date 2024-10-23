@@ -12,7 +12,7 @@ export default withAuth({
 
 // Cấu hình matcher để áp dụng middleware cho các trang cần bảo vệ
 export const config = {
-  matcher: ["/((?!login|api/auth|).*)"], // Không áp dụng cho các trang như login hoặc API auth
+  matcher: ["/((?!login|api/auth|).*)"],
 }
 
 // Middleware cho rewrite
@@ -22,6 +22,5 @@ export async function middleware(req: NextRequest) {
       return await rewriteMiddleware(req, rewrite)
     }
   }
-
   return NextResponse.next()
 }

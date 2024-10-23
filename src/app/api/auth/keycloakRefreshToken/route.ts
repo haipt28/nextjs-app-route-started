@@ -34,7 +34,7 @@ export async function POST(request: Request) {
       keycloakUrlToRefreshToken,
       keycloakParamsToRefreshToken
     )
-
+    console.log("refresh token successfully")
     return NextResponse.json(keycloakRefreshTokenResponse.data)
   } catch (error) {
     if (error instanceof AxiosError) {

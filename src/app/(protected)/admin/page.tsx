@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useSession } from "next-auth/react"
 
 import { Icons } from "@/components/icons"
+import { TestComponents } from "@/components/test/test"
 
 export interface IAdminPageProps {}
 
@@ -23,6 +24,7 @@ export default function AdminPage(props: IAdminPageProps) {
             {session?.user?.name || "not found"}!
           </span>
         </p>
+        <TestComponents />
         <div className="flex gap-2">
           <Link href="/">HOME</Link>
         </div>
