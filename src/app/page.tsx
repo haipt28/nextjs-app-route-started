@@ -1,11 +1,9 @@
 "use client"
 
-import { useEffect } from "react"
 import { Button, Typography } from "@mui/material"
 import { signIn, signOut } from "next-auth/react"
 
 import { siteConfig } from "@/config/site"
-import { useAuth } from "@/hooks/auth-hook"
 import { Icons } from "@/components/icons"
 import { TestComponents } from "@/components/test/test"
 
