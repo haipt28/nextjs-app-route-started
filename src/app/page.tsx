@@ -14,7 +14,7 @@ export default function Home() {
       <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
         <Icons.logo className="h-16 w-16" />
         <img
-          src="http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"
+          src="/image-rewrites/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"
           alt="logo bo cong thuong"
           width={300}
           height={200}
