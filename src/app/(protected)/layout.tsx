@@ -14,6 +14,7 @@ const ProtectedLayout = ({ children }: IProtectedRouteProps) => {
   useEffect(() => {
     if (status === "loading") return
     if (status === "unauthenticated" || session?.userNotFound === true) {
+      console.log("Cút về đăng nhập!!")
       router.push("/login")
     }
   }, [status, session, router])

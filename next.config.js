@@ -1,14 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  rewrites: () => {
-    return [
-      {
-        source: "/image-rewrites/:path*",
-        destination: "http://online.gov.vn/:path*",
-        // http://online.gov.vn/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png
-      },
-    ]
+// next.config.js
+module.exports = {
+  async rewrites() {
+    return []
   },
 }
-
-module.exports = nextConfig
