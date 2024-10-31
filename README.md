@@ -12,4 +12,4 @@ Next.js 14+ starter template with app router, Material UI, typesafe env, keycloa
 - Prettier (w/ auto sort imports and tailwind classes)
 - SEO optimized
 - Typesafe env, icons, and config
-- Ready to use - jump right into development
+- Ready to use - jump right into development.

@@ -4,10 +4,14 @@ import axios, {
   InternalAxiosRequestConfig,
 } from "axios"
 
+import { env } from "@/env.mjs"
 import { axiosInterceptors } from "@/lib/utils"
 
 const axiosClient = axios.create({
-  baseURL: "/service/",
+  baseURL: env.BACKEND_DOMAIN,
+  headers: {
+    "Content-Type": "application/json",
+  },
 })
 
 axiosClient.interceptors.request.use(

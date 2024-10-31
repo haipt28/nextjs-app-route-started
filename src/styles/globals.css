@@ -64,6 +64,14 @@
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
   }
+  ::-webkit-scrollbar {
+    height: 2px;
+    width: 2px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 4px;
+  }
 }
 
 @layer base {
