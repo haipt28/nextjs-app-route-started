@@ -18,7 +18,6 @@ export default async function AdminPage(props: any) {
   const _page = searchParams?.page ?? 1
   const data = await fetchData(_page, LIMIT)
 
-  console.log("data", data)
   return (
     <main className="flex h-screen items-center justify-center">
       <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">

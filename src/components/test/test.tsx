@@ -1,18 +1,24 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { authApi } from "@/api-client/auth"
 import { Button } from "@mui/material"
-
-import { useAuth } from "@/hooks/auth-hook"
 
 export interface ITestComponentsProps {}
 
 export function TestComponents(props: ITestComponentsProps) {
-  const { profile } = useAuth()
+  const [profile, setProfile] = useState<any>()
+
   const getProfile = async () => {
-    const { data } = await authApi.getProfile()
-    console.log("Profile: ", data)
+    try {
+      const { data } = await authApi.getProfile()
+      setProfile(data.data)
+    } catch (error) {}
   }
+
+  useEffect(() => {
+    getProfile()
+  }, [])
 
   return (
     <div>
@@ -20,7 +26,7 @@ export function TestComponents(props: ITestComponentsProps) {
       <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
         Welcome,{" "}
         <span className="capitalize text-amber-400">
-          {profile?.name || "not found"}!
+          {profile?.email || "not found"}!
         </span>
       </p>
     </div>

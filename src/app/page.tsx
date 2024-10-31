@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import { Button, Typography } from "@mui/material"
 import { signIn, signOut } from "next-auth/react"
 
