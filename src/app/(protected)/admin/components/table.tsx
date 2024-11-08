@@ -1,12 +1,17 @@
 "use client"
 
+import * as React from "react"
 import { IconButton } from "@mui/material"
 import Paper from "@mui/material/Paper"
 import Table from "@mui/material/Table"
 import TableBody from "@mui/material/TableBody"
 import TableCell from "@mui/material/TableCell"
 import TableContainer from "@mui/material/TableContainer"
+import TableHead from "@mui/material/TableHead"
 import TableRow from "@mui/material/TableRow"
+import { Trash } from "lucide-react"
+
+import { remove } from "./action"
 
 interface ITableProps {
   data: {
@@ -16,58 +21,44 @@ interface ITableProps {
   }[]
 }
 
-export default function CustomPaginationActionsTable(props: ITableProps) {
-  const { data } = props
-
+export default function BasicTable({ data }: ITableProps) {
   return (
-    <div className="h-[400px] overflow-auto">
-      <div className="relative flex h-full w-full flex-col overflow-scroll rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-        <table className="w-full min-w-max table-auto text-left">
-          <thead>
-            <tr>
-              <th className="border-blue-gray-100 bg-blue-gray-50 border-b p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-none antialiased opacity-70">
-                  Name
-                </p>
-              </th>
-              <th className="border-blue-gray-100 bg-blue-gray-50 border-b p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-none antialiased opacity-70">
-                  Job
-                </p>
-              </th>
-              <th className="border-blue-gray-100 bg-blue-gray-50 border-b p-4">
-                <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-none antialiased opacity-70"></p>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((user) => {
-              return (
-                <tr key={user.id}>
-                  <td className="border-blue-gray-50 border-b p-4">
-                    <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
-                      {user.name}
-                    </p>
-                  </td>
-                  <td className="border-blue-gray-50 border-b p-4">
-                    <p className="text-blue-gray-900 block font-sans text-sm font-normal leading-normal antialiased">
-                      {user.email}
-                    </p>
-                  </td>
-                  <td className="border-blue-gray-50 border-b p-4">
-                    <a
-                      href="#"
-                      className="text-blue-gray-900 block font-sans text-sm font-medium leading-normal antialiased"
-                    >
-                      Edit
-                    </a>
-                  </td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Name</TableCell>
+            <TableCell align="left">Email</TableCell>
+            <TableCell align="left">Email</TableCell>
+            <TableCell align="left">Email</TableCell>
+            <TableCell align="right"></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="left">{row.email}</TableCell>
+              <TableCell align="left">{row.email}</TableCell>
+              <TableCell align="left">{row.email}</TableCell>
+              <TableCell align="right">
+                <IconButton
+                  color="error"
+                  size="large"
+                  onClick={() => remove(row.id)}
+                >
+                  <Trash size={16} />
+                </IconButton>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   )
 }

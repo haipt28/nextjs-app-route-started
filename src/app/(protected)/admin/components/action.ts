@@ -11,3 +11,11 @@ export async function create(props: any) {
     throw new Error("Error creating User")
   }
 }
+export async function remove(id: number) {
+  try {
+    await usersApi.delete(id)
+    revalidateTag("users")
+  } catch (error) {
+    throw new Error("Error creating User")
+  }
+}
