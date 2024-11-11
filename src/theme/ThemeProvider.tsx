@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react"
 import * as React from "react"
-import { StyledEngineProvider, ThemeProvider } from "@mui/material"
+import { StyledEngineProvider } from "@mui/material"
 import { StylesProvider } from "@mui/styles"
+import { ConfigProvider } from "antd"
+import { ThemeProvider } from "next-themes"
 
 import { themeCreator } from "./base"
 
@@ -31,7 +33,17 @@ export default function ThemeProviderWrapper(props: ThemeProviderWrapperProps) {
     <StylesProvider injectFirst>
       <ThemeContext.Provider value={setThemeName}>
         <StyledEngineProvider injectFirst>
-          <ThemeProvider theme={theme}>{props.children}</ThemeProvider>
+          <ConfigProvider
+            theme={{
+              token: {
+                colorBgContainer: "#020617",
+                colorText: "white",
+                colorBgBase: "#020617",
+              },
+            }}
+          >
+            <ThemeProvider attribute="class">{props.children}</ThemeProvider>
+          </ConfigProvider>
         </StyledEngineProvider>
       </ThemeContext.Provider>
     </StylesProvider>

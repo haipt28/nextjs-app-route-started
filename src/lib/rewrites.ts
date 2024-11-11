@@ -13,7 +13,7 @@ export interface TypeRewrite {
 export const rewrites: TypeRewrite[] = [
   {
     start: "/service/",
-    urlBase: env.BACKEND_DOMAIN, // Sử dụng biến môi trường BACKEND_DOMAIN
+    urlBase: `${env.BACKEND_DOMAIN}/api`, // Sử dụng biến môi trường BACKEND_DOMAIN
   },
 ]
 
