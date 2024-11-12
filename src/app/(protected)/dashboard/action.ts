@@ -3,19 +3,19 @@
 import { revalidateTag } from "next/cache"
 import { usersApi } from "@/api-client/users"
 
-export async function create(props: any) {
+export const createMessage = async (formData: any) => {
   try {
-    await usersApi.create(props)
+    await usersApi.create(formData)
     revalidateTag("users")
   } catch (error) {
-    throw new Error("Error creating User")
+    console.log(error)
   }
 }
-export async function remove(id: number) {
+export const removeMessage = async (id: number) => {
   try {
     await usersApi.delete(id)
     revalidateTag("users")
   } catch (error) {
-    throw new Error("Error creating User")
+    console.log("error", error)
   }
 }

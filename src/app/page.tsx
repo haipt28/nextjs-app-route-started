@@ -1,46 +1,52 @@
 "use client"
 
-import { Button, Typography } from "@mui/material"
-import { signIn, signOut } from "next-auth/react"
-
-import { siteConfig } from "@/config/site"
-import { Icons } from "@/components/icons"
-import { TestComponents } from "@/components/test/test"
+import { Benefits } from "@/components/home-landing-page/Benefits"
+import { Container } from "@/components/home-landing-page/Container"
+import { Cta } from "@/components/home-landing-page/Cta"
+import { benefitOne, benefitTwo } from "@/components/home-landing-page/data"
+import { Faq } from "@/components/home-landing-page/Faq"
+import { Hero } from "@/components/home-landing-page/Hero"
+import { SectionTitle } from "@/components/home-landing-page/SectionTitle"
+import { Testimonials } from "@/components/home-landing-page/Testimonials"
+import { Video } from "@/components/home-landing-page/Video"
 
 export default function Home() {
   return (
-    <main className="flex h-screen items-center justify-center">
-      <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
-        <Icons.logo className="h-16 w-16" />
-        <img
-          src="/image-rewrites/Content/EndUser/LogoCCDVSaleNoti/logoSaleNoti.png"
-          alt="logo bo cong thuong"
-          width={300}
-          height={200}
-        />
-        <Typography className="text-4xl font-semibold text-white sm:text-5xl md:text-6xl lg:text-7xl">
-          {siteConfig.name}
-        </Typography>
-        <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-          {siteConfig.description}
-        </p>
-        <TestComponents />
-        <div className="flex gap-2">
-          <Button
-            variant="contained"
-            color="error"
-            onClick={() => signIn("keycloak")}
-          >
-            Login
-          </Button>
-          <Button variant="outlined" onClick={() => signOut()} color="error">
-            Signout
-          </Button>
-          <Button variant="contained" href="/admin" color="error">
-            Admin
-          </Button>
-        </div>
-      </div>
-    </main>
+    <Container>
+      <Hero />
+      <SectionTitle
+        preTitle="Nextly Benefits"
+        title=" Why should you use this landing page"
+      >
+        Nextly is a free landing page & marketing website template for startups
+        and indie projects. Its built with Next.js & TailwindCSS. And its
+        completely open-source.
+      </SectionTitle>
+      <Benefits data={benefitOne} />
+      <Benefits imgPos="right" data={benefitTwo} />
+      <SectionTitle
+        preTitle="Watch a video"
+        title="Learn how to fullfil your needs"
+      >
+        This section is to highlight a promo or demo video of your product.
+        Analysts says a landing page with video has 3% more conversion rate. So,
+        don&apos;t forget to add one. Just like this.
+      </SectionTitle>
+      <Video videoId="fZ0D0cnR88E" />
+      <SectionTitle
+        preTitle="Testimonials"
+        title="Here's what our customers said"
+      >
+        Testimonials is a great way to increase the brand trust and awareness.
+        Use this section to highlight your popular customers.
+      </SectionTitle>
+      <Testimonials />
+      <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
+        Answer your customers possible questions here, it will increase the
+        conversion rate as well as support or chat requests.
+      </SectionTitle>
+      <Faq />
+      <Cta />
+    </Container>
   )
 }

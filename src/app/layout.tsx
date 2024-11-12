@@ -6,9 +6,13 @@ import "@fontsource/roboto/500.css"
 import "@fontsource/roboto/700.css"
 
 import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import { ThemeProvider } from "next-themes"
 
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { Footer } from "@/components/home-landing-page/Footer"
+import { Navbar } from "@/components/home-landing-page/Navbar"
+import { PopupWidget } from "@/components/home-landing-page/PopupWidget"
 import GlobalProvider from "@/components/provider/global"
 
 interface RootLayoutProps {
@@ -58,12 +62,18 @@ export const metadata: Metadata = {
   },
 }
 
+const inter = Inter({ subsets: ["latin"] })
+
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="vi" suppressHydrationWarning>
-      <head />
-      <body className={cn("min-h-screen bg-slate-900 text-white antialiased")}>
-        <GlobalProvider>{children}</GlobalProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <GlobalProvider>
+          <Navbar />
+          <div>{children}</div>
+          <Footer />
+          <PopupWidget />
+        </GlobalProvider>
       </body>
     </html>
   )

@@ -7,4 +7,7 @@ export const usersApi = {
   create(payload: any) {
     return axiosClient.post("/users", payload)
   },
+  delete(id: number) {
+    return axiosClient.delete(`/users/${id}`)
+  },
 }

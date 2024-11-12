@@ -2,6 +2,7 @@ import { usersApi } from "@/api-client/users"
 
 import FormDialog from "./components/create-from"
 import CustomPaginationActionsTable from "./components/table"
+import BasicTable from "./components/table"
 
 async function fetchData(page: number, limit: number) {
   try {
@@ -22,7 +23,7 @@ export default async function AdminPage(props: any) {
     <main className="flex h-screen items-center justify-center">
       <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
         <FormDialog />
-        <CustomPaginationActionsTable data={data} />
+        <BasicTable data={data} />
       </div>
     </main>
   )

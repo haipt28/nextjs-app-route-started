@@ -14,7 +14,7 @@ const ProtectedLayout = ({ children }: IProtectedRouteProps) => {
   useEffect(() => {
     if (status === "loading") return
     if (status === "unauthenticated" || session?.userNotFound === true) {
-      router.push("/login")
+      router.push("/")
     }
   }, [status, session, router])
 
